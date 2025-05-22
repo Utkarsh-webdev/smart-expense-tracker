@@ -286,109 +286,287 @@ tr:last-child td {
 }
 
 /* --- Responsive Styles --- */
-@media (max-width: 1024px) {
-  header h1 {
-    font-size: 2rem;
+/* Add these responsive improvements to your existing CSS */
+
+/* Laptop Screens (1024px - 1366px) */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+  .container {
+    max-width: 95%;
+    padding: 1.5rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+
+  .input-section {
+    grid-column: span 12;
   }
 
   .summary-cards {
-    flex-direction: column;
+    grid-column: span 12;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .income-section {
+    grid-column: span 6;
+  }
+
+  .pending-amounts-section {
+    grid-column: span 6;
   }
 
   .charts-section {
-    flex-direction: column;
+    grid-column: span 12;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .input-group {
-    flex-direction: column;
-  }
-
-  .input-group input,
-  .input-group select {
-    width: 100%;
-  }
-
-  button {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .summary-card,
   .chart-container {
-    width: 100%;
+    min-height: 350px;
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet and Small Laptop (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .container {
-    padding: 1rem 0.5rem;
+    padding: 1rem;
+  }
+
+  .dashboard-grid {
+    gap: 1rem;
+  }
+
+  .summary-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .income-section,
+  .pending-amounts-section {
+    grid-column: span 12;
+  }
+
+  .charts-section {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    min-height: 300px;
+  }
+
+  .input-section .input-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .input-section .primary-btn {
+    grid-column: span 2;
+  }
+}
+
+/* Mobile Devices (320px - 767px) */
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  header {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1rem;
   }
 
   header h1 {
     font-size: 1.75rem;
   }
 
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  section h2 {
-    font-size: 1.3rem;
-  }
-
   .dashboard-grid {
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
-  .table-container {
-    max-height: none;
-    overflow-x: auto;
+  .input-section .input-group {
+    grid-template-columns: 1fr;
   }
 
-  th, td {
-    font-size: 0.9rem;
-    padding: 1rem 0.75rem;
+  .summary-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .summary-card {
+    padding: 1.25rem;
+  }
+
+  .income-section,
+  .pending-amounts-section {
+    padding: 1.25rem;
+  }
+
+  .income-section .input-group,
+  .pending-amounts-section .input-group {
+    grid-template-columns: 1fr;
   }
 
   .pending-item {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: 1fr;
+    text-align: center;
     gap: 0.5rem;
   }
 
-  .pending-item .actions {
-    width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+  .pending-item span {
+    padding: 0.25rem 0;
   }
 
-  .pending-item button {
-    width: auto;
+  .charts-section {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .chart-container {
+    min-height: 250px;
+    padding: 1rem;
+  }
+
+  /* Table Improvements for Mobile */
+  .table-container {
+    margin: 0 -0.75rem;
+    padding: 0.75rem;
+    overflow-x: auto;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 0.75rem 0.5rem;
+    min-width: 100px;
+  }
+
+  .table-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #download-excel {
+    width: 100%;
+  }
+
+  /* Button Improvements */
+  .primary-btn, 
+  .secondary-btn, 
+  .update-btn {
+    width: 100%;
+    padding: 0.875rem;
+  }
+
+  /* Form Elements */
+  input, select {
+    padding: 0.875rem;
+    font-size: 0.95rem;
   }
 }
 
-@media (max-width: 480px) {
+/* Small Mobile Devices (320px - 375px) */
+@media screen and (max-width: 375px) {
   header h1 {
     font-size: 1.5rem;
   }
 
-  .subtitle {
-    font-size: 0.95rem;
+  .summary-card {
+    padding: 1rem;
   }
 
-  section h2 {
-    font-size: 1.2rem;
-  }
-
-  .income-summary p {
-    font-size: 1rem;
+  .summary-card h3 {
+    font-size: 0.9rem;
   }
 
   .summary-card p {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
 
-  button {
-    font-size: 0.9rem;
+  .pending-item {
+    padding: 1rem;
+  }
+
+  .chart-container {
+    min-height: 200px;
+  }
+}
+
+
+/* Better Touch Targets for Mobile */
+@media (max-width: 767px) {
+  button,
+  select,
+  input[type="date"] {
+    min-height: 44px;
+  }
+
+  .pending-item button {
+    padding: 0.75rem;
+    width: 100%;
+  }
+
+  /* Improved Mobile Navigation */
+  .dashboard-grid > section {
+    margin-bottom: 1rem;
+  }
+
+  /* Better Spacing for Mobile Forms */
+  .input-group {
+    gap: 0.75rem;
+  }
+
+  /* Enhanced Mobile Typography */
+  section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Landscape Mode Optimization */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .dashboard-grid {
+    gap: 0.75rem;
+  }
+
+  .chart-container {
+    min-height: 200px;
+  }
+
+  .summary-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* High-DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Print Optimization */
+@media print {
+  .container {
+    padding: 0;
+  }
+
+  .dashboard-grid {
+    display: block;
+  }
+
+  .chart-container {
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
+  .no-print {
+    display: none;
   }
 }
